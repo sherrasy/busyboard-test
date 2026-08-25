@@ -1,0 +1,16 @@
+@use '@app/styles/variables.scss' as *;
+
+.badge {
+  height: auto !important;
+  border-radius: 6px !important;
+  max-width: none !important;
+
+  :global(.MuiChip-label) {
+    padding: 4px 12px !important;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: visible;
+  }
+}

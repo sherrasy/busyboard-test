@@ -1,0 +1,13 @@
+.paginationBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.rowsLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e1e1e;
+  white-space: nowrap;
+}

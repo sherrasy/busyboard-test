@@ -1,0 +1,18 @@
+@use '@app/styles/variables.scss' as *;
+
+.main {
+  flex: 1;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.title {
+  color: #1e1e1e;
+  margin: 0;
+  padding: $spacing-lg $spacing-lg $spacing-md;
+}
+
+.section {
+  background-color: #ffffff;
+  padding: $spacing-lg;
+}

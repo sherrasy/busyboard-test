@@ -1,0 +1,96 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+  padding: 0 16px;
+  background-color: #fff;
+  box-shadow: none;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-right: 32px;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navButton {
+  text-transform: none !important;
+  min-height: 56px;
+  padding: 0 16px !important;
+  font-size: 0.875rem;
+  border-radius: 0 !important;
+  position: relative;
+  font-weight: 400 !important;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.userButton {
+  text-transform: none !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-height: 36px;
+  padding: 0 8px !important;
+}
+
+.iconButton {
+  padding: 6px !important;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+}
+
+.favoritesButton {
+  text-transform: none !important;
+  border-radius: 6px !important;
+  padding: 4px 12px !important;
+  min-height: 36px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.menuPaper {
+  margin-top: 4px;
+  min-width: 180px;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+
+.menuItem {
+  border-radius: 4px;
+  margin: 0 8px;
+  padding: 6px 12px;
+  min-height: 40px;
+  gap: 12px;
+}
+
+.navMenuPaper {
+  margin-top: 0;
+  min-width: 200px;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+
+.navMenuItem {
+  border-radius: 4px;
+  margin: 0 8px;
+  padding: 6px 12px;
+  min-height: 36px;
+}
