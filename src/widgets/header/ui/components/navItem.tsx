@@ -1,14 +1,15 @@
-import React, { useRef } from 'react';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 import {
   Button,
-  Menu,
-  MenuItem,
+  Divider,
   ListItemIcon,
   ListItemText,
+  Menu,
+  MenuItem,
   Typography,
-  Divider,
 } from '@mui/material';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import React, { useRef } from 'react';
+import styles from '../header.module.scss';
 
 interface SubmenuItem {
   title: string;
@@ -42,30 +43,16 @@ export const NavItem: React.FC<NavItemProps> = ({
         ref={buttonRef}
         onMouseEnter={() => onMouseEnter(label)}
         onMouseLeave={onMouseLeave}
+        className={styles.navItem}
         sx={{
-          textTransform: 'none',
-          minHeight: 56,
-          px: 2,
-          py: 0,
-          color: isActive ? '#414042' : '#718096',
-          fontSize: '0.875rem',
+          color: isActive ? 'text.primary' : 'text.secondary',
           fontWeight: isActive ? 600 : 400,
-          borderRadius: 0,
-          position: 'relative',
           '&:hover': {
-            color: '#414042',
-            backgroundColor: 'transparent',
+            color: 'text.primary',
           },
           '&::after': isActive
             ? {
-                content: '""',
-                position: 'absolute',
-                bottom: 0,
-                left: 8,
-                right: 8,
-                height: 2.5,
-                borderRadius: '2px 2px 0 0',
-                backgroundColor: '#2196F3',
+                backgroundColor: 'primary.main',
               }
             : {},
         }}
@@ -83,14 +70,10 @@ export const NavItem: React.FC<NavItemProps> = ({
           paper: {
             onMouseEnter: () => onMouseEnter(label),
             onMouseLeave: onMouseLeave,
+            className: styles.menuPaper,
             sx: {
-              mt: 0,
-              minWidth: 240,
-              boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+              boxShadow: 'theme.shadows[8]',
               borderRadius: 2,
-              pointerEvents: 'auto',
-              py: 1.5,
-              px: 1,
             },
           },
         }}
@@ -99,44 +82,42 @@ export const NavItem: React.FC<NavItemProps> = ({
         disableEnforceFocus
       >
         <Typography
+          className={styles.menuTitle}
+          variant='button'
           sx={{
-            px: 2,
-            py: 0.5,
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            color: '#A0AEC0',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
+            color: 'text.primary',
           }}
         >
           {label}
         </Typography>
 
-        <Divider sx={{ my: 1, mx: 2, borderColor: '#F1F5F9' }} />
+        <Divider
+          className={styles.menuDivider}
+          sx={{ borderColor: 'grayLight.main' }}
+        />
 
         {submenu.items.map((item) => (
           <MenuItem
             key={item}
             onClick={() => onSubmenuClick(label)}
+            className={styles.menuItem}
             sx={{
-              borderRadius: 1,
-              mx: 1,
-              px: 1.5,
-              py: 0.75,
-              minHeight: 36,
               '&:hover': {
-                backgroundColor: '#F8FAFC',
+                backgroundColor: 'background.hover',
               },
             }}
           >
-            <ListItemIcon sx={{ minWidth: 32, color: '#CBD5E0' }}>
-              <StarBorderIcon sx={{ fontSize: 18 }} />
+            <ListItemIcon
+              className={styles.menuItemIcon}
+              sx={{ color: 'grayLight.main' }}
+            >
+              <StarBorderIcon className={styles.menuItemIconSvg} />
             </ListItemIcon>
             <ListItemText
               primary={item}
               primaryTypographyProps={{
                 fontSize: '0.875rem',
-                color: '#414042',
+                color: 'text.primary',
               }}
             />
           </MenuItem>

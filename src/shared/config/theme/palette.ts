@@ -11,8 +11,9 @@ const colors = {
   bg: '#F6F7FB',
   success: '#1AB889',
   error: '#FF5E5B',
-  textPrimary: '#1E1E1E',
+  textPrimary: '#35373A',
   textSecondary: '#8496AF',
+  blueDark: '#007AFF',
 };
 
 export const lightPalette: PaletteOptions = {
@@ -67,7 +68,7 @@ export const lightPalette: PaletteOptions = {
   blueLight: {
     main: colors.blueLight,
     light: `${colors.blueLight}80`,
-    dark: colors.primary,
+    dark: colors.blueDark,
     contrastText: colors.dark,
   },
   dark: {

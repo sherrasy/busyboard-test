@@ -5,7 +5,7 @@ export const typography: TypographyVariantsOptions = {
   htmlFontSize: 16,
   allVariants: {
     lineHeight: 1.4,
-    letterSpacing: '-0.01em',
+    letterSpacing: 0.8,
   },
   h1: {
     fontSize: '24px',

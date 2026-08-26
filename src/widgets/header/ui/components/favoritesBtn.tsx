@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
+import { Button, Typography } from '@mui/material';
+import React from 'react';
 import styles from '../header.module.scss';
 
 export const FavoritesButton: React.FC = () => (
@@ -17,6 +17,6 @@ export const FavoritesButton: React.FC = () => (
       },
     }}
   >
-    Избранное
+    <Typography variant='button'>Избранное</Typography>
   </Button>
 );

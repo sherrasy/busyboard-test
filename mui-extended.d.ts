@@ -34,3 +34,9 @@ declare module '@mui/material/Button' {
     white: true;
   }
 }
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    primaryCustom: true;
+  }
+}

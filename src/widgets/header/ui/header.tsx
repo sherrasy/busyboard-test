@@ -1,12 +1,11 @@
-import React, { useState, useCallback } from 'react';
-import { AppBar, Toolbar, Box } from '@mui/material';
-import { useHoverMenu } from '../lib/useHoverMenu';
+import { AppBar, Box, Toolbar } from '@mui/material';
+import React, { useCallback, useState } from 'react';
+import { navItems, submenuData } from '../lib/consts';
 import { useAnchorMenu } from '../lib/useAnchorMenu';
-import { Logo } from './components/logo';
+import { useHoverMenu } from '../lib/useHoverMenu';
 import { FavoritesButton } from './components/favoritesBtn';
 import { NavItem } from './components/navItem';
 import { UserMenu } from './components/userMenu';
-import { navItems, submenuData } from '../lib/consts';
 
 export const Header: React.FC = () => {
   const [activeItem, setActiveItem] = useState<string>(navItems[0]);
@@ -35,15 +34,21 @@ export const Header: React.FC = () => {
     >
       <Toolbar
         variant='dense'
+        disableGutters
         sx={{
           minHeight: 56,
-          px: 2,
           display: 'flex',
           alignItems: 'center',
-          gap: 1,
+          px: '12px',
+          gap: 5,
         }}
       >
-        <Logo />
+        <Box
+          component='img'
+          src='/images/logo.svg'
+          alt='Logo'
+          sx={{ height: 24, width: 120, display: 'block', ml: '6px' }}
+        />
         <FavoritesButton />
 
         <Box
@@ -52,6 +57,7 @@ export const Header: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             position: 'relative',
+            gap: '36px',
           }}
         >
           {navItems.map((item) => (

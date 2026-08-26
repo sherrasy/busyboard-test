@@ -1,3 +1,4 @@
+import { Header } from '@/widgets/header';
 import React from 'react';
 import styles from './layout.module.scss';
 
@@ -6,5 +7,10 @@ interface PageLayoutProps {
 }
 
 export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
-  return <div className={styles.layout}>{children}</div>;
+  return (
+    <div className={styles.layout}>
+      <Header />
+      {children}
+    </div>
+  );
 };

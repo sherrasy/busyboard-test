@@ -120,4 +120,35 @@ export const components: Components<Theme> = {
       },
     },
   },
+  MuiButton: {
+    styleOverrides: {},
+    variants: [
+      {
+        props: { variant: 'primaryCustom' },
+        style: ({ theme }) => ({
+          minHeight: '46px',
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.primary.contrastText,
+          '&:hover': {
+            backgroundColor: theme.palette.blueLight.dark,
+          },
+          '&:active': {
+            opacity: 0.85,
+          },
+          '&.Mui-disabled': {
+            backgroundColor: theme.palette.grayLight.main,
+            color: theme.palette.gray.main,
+            opacity: 0.6,
+          },
+        }),
+      },
+    ],
+  },
+  MuiIconButton: {
+    styleOverrides: {
+      root: {
+        color: 'inherit',
+      },
+    },
+  },
 };

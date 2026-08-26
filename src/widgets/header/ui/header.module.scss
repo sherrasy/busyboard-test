@@ -3,18 +3,9 @@
   align-items: center;
   gap: 8px;
   min-height: 56px;
-  padding: 0 16px;
   background-color: #fff;
   box-shadow: none;
   border-bottom: 1px solid #e2e8f0;
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin-right: 32px;
-  letter-spacing: -0.5px;
-  line-height: 1;
 }
 
 .nav {
@@ -36,34 +27,38 @@
 .userSection {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-left: auto;
+  width: 280px;
 }
 
 .userButton {
-  text-transform: none !important;
-  font-size: 0.875rem;
-  font-weight: 500;
+  width: 166px;
+  justify-content: flex-end;
   min-height: 36px;
-  padding: 0 8px !important;
+  padding: 0 !important;
+  span {
+    margin-left: 0;
+    margin-right: 10px;
+  }
 }
 
 .iconButton {
-  padding: 6px !important;
+  padding: 2px !important;
 }
 
 .avatar {
-  width: 28px;
-  height: 28px;
+  width: 32px !important;
+  height: 32px !important;
 }
 
 .favoritesButton {
-  text-transform: none !important;
-  border-radius: 6px !important;
-  padding: 4px 12px !important;
-  min-height: 36px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  border-radius: 8px;
+  padding: 10px 8px 10px 14px !important;
+  height: 40px;
+  width: 132px;
+  gap: 4px;
+  justify-content: space-evenly;
 }
 
 .menuPaper {
@@ -81,16 +76,60 @@
   gap: 12px;
 }
 
-.navMenuPaper {
-  margin-top: 0;
-  min-width: 200px;
-  border-radius: 8px;
-  padding: 8px 0;
+.navItem {
+  box-sizing: border-box;
+  min-height: 56px;
+  padding-inline: 5px !important;
+  padding-bottom: 4px !important;
+  border-radius: 0;
+  position: relative;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    height: 2px;
+  }
 }
 
-.navMenuItem {
-  border-radius: 4px;
+.menuPaper {
+  margin-top: 0;
+  min-width: 240px;
+  pointer-events: auto;
+  padding: 12px 8px;
+}
+
+.menuTitle {
+  padding: 4px 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.menuDivider {
+  margin: 8px 16px;
+}
+
+.menuItem {
+  border-radius: 8px;
   margin: 0 8px;
   padding: 6px 12px;
   min-height: 36px;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.menuItemIcon {
+  min-width: 32px;
+}
+
+.menuItemIconSvg {
+  font-size: 18px;
 }

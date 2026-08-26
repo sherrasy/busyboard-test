@@ -1,45 +1,42 @@
-@use '@app/styles/variables.scss' as *;
-
 .bar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: $spacing-md 0;
+  align-items: flex-start;
 }
 
 .left,
 .right {
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: 10px;
 }
 
 .btnPrimary {
-  min-width: 120px;
+  min-width: 140px;
+}
+.filterBtn {
+  width: 140px;
+  padding: 13px 20px;
+}
+.apiBtn {
+  width: 166px;
+  padding: 9px 12px;
+  white-space: nowrap;
+}
+.requestBtn {
+  width: 185px;
+  padding: 9px 12px;
+  white-space: nowrap;
 }
 
 .btnIcon {
-  width: 40px;
-  height: 40px;
-  border-radius: $radius-md;
-  background-color: #eaf5ff;
-  transition: background-color $transition-fast;
-
-  &:hover {
-    background-color: #d4ebff;
-  }
-}
-
-.btnApi {
-  border: 1px solid;
-  transition: all $transition-fast;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px !important;
 }
 
 .btnIconBordered {
-  width: 40px;
-  height: 40px;
-  border-radius: $radius-md;
-  background-color: #ffffff;
-  border: 1px solid;
-  transition: all $transition-fast;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px !important;
 }

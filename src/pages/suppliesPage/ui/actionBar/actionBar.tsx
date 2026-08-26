@@ -1,62 +1,81 @@
-import React from 'react';
+import { BookmarkIcon } from '@/shared/icons/bookmarkIcon';
+import { DownloadIcon } from '@/shared/icons/downloadIcon';
+import { EraseIcon } from '@/shared/icons/eraseIcon';
+import { PlusIcon } from '@/shared/icons/plusIcon';
+import { SearchIcon } from '@/shared/icons/searchIcon';
+import { SettingsIcon } from '@/shared/icons/settingsIcon';
 import { Box, Button, IconButton } from '@mui/material';
-import FilterListIcon from '@mui/icons-material/FilterList';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import EditIcon from '@mui/icons-material/Edit';
-import CropFreeIcon from '@mui/icons-material/CropFree';
-import DownloadIcon from '@mui/icons-material/Download';
-import AddIcon from '@mui/icons-material/Add';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import cn from 'classnames';
+import React from 'react';
 import styles from './actionBar.module.scss';
 
 export const ActionBar: React.FC = () => {
   return (
-    <Box className={`${styles.bar} onboarding-actions`}>
+    <Box className={cn(styles.bar, 'onboarding-actions')}>
       <Box className={styles.left}>
-        <Button variant='contained' className={styles.btnPrimary}>
+        <Button
+          variant='primaryCustom'
+          className={cn(styles.btnPrimary, styles.filterBtn)}
+        >
           Фильтр
         </Button>
 
         <IconButton
           aria-label='Закладки'
           className={styles.btnIcon}
-          sx={{ color: 'theme.palette.gray.main' }}
+          sx={{
+            backgroundColor: 'blueLight.main',
+            '&:hover': {
+              backgroundColor: 'primary.main',
+              color: 'primary.contrastText',
+            },
+          }}
         >
-          <BookmarkBorderIcon fontSize='small' />
+          <BookmarkIcon />
         </IconButton>
 
         <IconButton
           aria-label='Редактировать'
           className={styles.btnIcon}
-          sx={{ color: ' theme.palette.gray.main' }}
+          sx={{
+            backgroundColor: 'blueLight.main',
+            '&:hover': {
+              backgroundColor: 'primary.main',
+              color: 'primary.contrastText',
+            },
+          }}
         >
-          <EditIcon fontSize='small' />
+          <EraseIcon />
         </IconButton>
 
         <IconButton
           aria-label='Полный экран'
           className={styles.btnIcon}
-          sx={{ color: 'theme.palette.gray.main' }}
+          sx={{
+            backgroundColor: 'blueLight.main',
+            '&:hover': {
+              backgroundColor: 'primary.main',
+              color: 'primary.contrastText',
+            },
+          }}
         >
-          <CropFreeIcon fontSize='small' />
+          <SearchIcon />
         </IconButton>
       </Box>
 
       <Box className={styles.right}>
         <Button
-          variant='contained'
-          startIcon={
-            <DownloadIcon sx={{ color: 'theme.palette.primary.main' }} />
-          }
-          className={styles.btnApi}
+          variant='primaryCustom'
+          startIcon={<DownloadIcon />}
+          className={cn(styles.btnPrimary, styles.apiBtn)}
         >
           Загрузить по API
         </Button>
 
         <Button
-          variant='contained'
-          startIcon={<AddIcon />}
-          className={styles.btnPrimary}
+          variant='primaryCustom'
+          startIcon={<PlusIcon />}
+          className={cn(styles.btnPrimary, styles.requestBtn)}
         >
           Заявка на поставку
         </Button>
@@ -64,16 +83,9 @@ export const ActionBar: React.FC = () => {
         <IconButton
           aria-label='Настройки'
           className={styles.btnIconBordered}
-          sx={{
-            color: 'theme.palette.gray.main',
-            borderColor: 'theme.palette.divider',
-            '&:hover': {
-              borderColor: 'theme.palette.gray.main',
-              backgroundColor: 'theme.palette.background.hover',
-            },
-          }}
+          sx={{ border: (theme) => `1px solid ${theme.palette.gray.light}` }}
         >
-          <SettingsOutlinedIcon fontSize='small' />
+          <SettingsIcon fontSize='small' />
         </IconButton>
       </Box>
     </Box>

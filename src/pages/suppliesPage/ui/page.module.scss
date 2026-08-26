@@ -1,18 +1,22 @@
-@use '@app/styles/variables.scss' as *;
-
 .main {
+  padding-inline: 20px;
+  padding-block: 10px;
   flex: 1;
   width: 100%;
-  background-color: #ffffff;
 }
 
 .title {
-  color: #1e1e1e;
-  margin: 0;
-  padding: $spacing-lg $spacing-lg $spacing-md;
+  width: fit-content;
+  padding: 4px 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .section {
-  background-color: #ffffff;
-  padding: $spacing-lg;
+  padding: 20px;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

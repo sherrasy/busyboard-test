@@ -1,41 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { FilterPanel } from '@/features/filterSupplies';
-import { Header } from '@/widgets/header';
 import { ActionBar } from './actionBar/actionBar';
 import { SuppliesTable } from './table/table';
 
-import { PaginationBar } from '@/shared/ui/pagination/pagination';
+import { Box, Typography } from '@mui/material';
 import styles from './page.module.scss';
-import { Typography } from '@mui/material';
 
 export const SuppliesPage: React.FC = () => {
-  const [page, setPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(50);
   return (
-    <>
-      {/* <Onboarding /> */}
-      <Header />
-      <main className={styles.main}>
-        <Typography variant='subtitle2' className={styles.title}>
-          Заявки на поставку
-        </Typography>
-        <section className={styles.section}>
-          <ActionBar />
-          <FilterPanel />
-          <SuppliesTable />
-          <PaginationBar
-            page={page}
-            totalPages={10}
-            rowsPerPage={rowsPerPage}
-            onPageChange={setPage}
-            onRowsPerPageChange={(rows) => {
-              setRowsPerPage(rows);
-              setPage(1);
-            }}
-          />
-        </section>
-      </main>
-    </>
+    <Box
+      component={'main'}
+      className={styles.main}
+      sx={{ backgroundColor: 'background.default' }}
+    >
+      <Typography
+        variant='h6'
+        className={styles.title}
+        sx={{ color: 'gray.main', backgroundColor: 'gray.light' }}
+      >
+        Заявки на поставку
+      </Typography>
+      <Box
+        component={'section'}
+        className={styles.section}
+        sx={{
+          backgroundColor: 'background.paper',
+          border: (theme) => `1px solid ${theme.palette.gray.light}`,
+        }}
+      >
+        <ActionBar />
+        <FilterPanel />
+        <SuppliesTable />
+      </Box>
+    </Box>
   );
 };

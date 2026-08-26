@@ -1,18 +1,19 @@
-import React from 'react';
+import { BookIcon } from '@/shared/icons/bookIcon';
+import { NotificationIcon } from '@/shared/icons/notificationIcon';
+import { UserIcon } from '@/shared/icons/userIcon';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {
+  Avatar,
   Box,
   Button,
-  Menu,
-  MenuItem,
+  IconButton,
   ListItemIcon,
   ListItemText,
-  IconButton,
-  Avatar,
+  Menu,
+  MenuItem,
+  Stack,
 } from '@mui/material';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import PersonIcon from '@mui/icons-material/PersonOutlined';
+import React from 'react';
 import { userMenuItems } from '../../lib/consts';
 import styles from '../header.module.scss';
 
@@ -36,7 +37,8 @@ export const UserMenu: React.FC<UserMenuProps> = ({
       endIcon={
         <KeyboardArrowDownIcon
           sx={{
-            fontSize: 18,
+            width: 24,
+            height: 24,
             color: 'text.secondary',
           }}
         />
@@ -90,25 +92,17 @@ export const UserMenu: React.FC<UserMenuProps> = ({
         </MenuItem>
       ))}
     </Menu>
+    <Stack direction={'row'} gap={'4px'} sx={{ color: 'text.primary' }}>
+      <IconButton className={styles.iconButton} size='small'>
+        <BookIcon />
+      </IconButton>
 
-    <IconButton
-      className={styles.iconButton}
-      size='small'
-      sx={{ color: 'text.secondary' }}
-    >
-      <MenuBookIcon sx={{ fontSize: 20 }} />
-    </IconButton>
-
-    <IconButton
-      className={styles.iconButton}
-      size='small'
-      sx={{ color: 'text.secondary' }}
-    >
-      <NotificationsNoneIcon sx={{ fontSize: 20 }} />
-    </IconButton>
-
+      <IconButton className={styles.iconButton} size='small'>
+        <NotificationIcon />
+      </IconButton>
+    </Stack>
     <Avatar className={styles.avatar} sx={{ bgcolor: 'success.main' }}>
-      <PersonIcon sx={{ fontSize: 18, color: 'white.main' }} />
+      <UserIcon sx={{ fontSize: 16, color: 'white.main' }} />
     </Avatar>
   </Box>
 );
