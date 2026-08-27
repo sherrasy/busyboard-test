@@ -120,13 +120,24 @@ export const components: Components<Theme> = {
           '&:hover': {
             backgroundColor: theme.palette.blueLight.dark,
           },
-          '&:active': {
-            opacity: 0.85,
-          },
           '&.Mui-disabled': {
             backgroundColor: theme.palette.grayLight.main,
             color: theme.palette.gray.main,
             opacity: 0.6,
+          },
+        }),
+      },
+      {
+        props: { variant: 'outlinedCustom' },
+        style: ({ theme }) => ({
+          minHeight: '46px',
+          backgroundColor: 'transparent',
+          color: theme.palette.text.primary,
+          border: `1px solid ${theme.palette.gray.light}`,
+          '&:hover': {
+            color: theme.palette.primary.main,
+            borderColor: theme.palette.primary.main,
+            backgroundColor: 'transparent',
           },
         }),
       },

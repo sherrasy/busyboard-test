@@ -65,6 +65,7 @@ export const ActionBar: React.FC = () => {
 
       <Box className={styles.right}>
         <Button
+          data-tour='api-supplies-button'
           variant='primaryCustom'
           startIcon={<DownloadIcon />}
           className={cn(styles.btnPrimary, styles.apiBtn)}
@@ -73,6 +74,7 @@ export const ActionBar: React.FC = () => {
         </Button>
 
         <Button
+          data-tour='add-supplies-button'
           variant='primaryCustom'
           startIcon={<PlusIcon />}
           className={cn(styles.btnPrimary, styles.requestBtn)}

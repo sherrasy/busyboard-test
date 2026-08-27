@@ -3,7 +3,6 @@ import { TableHeader } from '@/shared/ui/tableParts/headerCell';
 import { useSupplies } from '@entities/supply';
 import {
   Box,
-  Paper,
   Table,
   TableBody,
   TableCell,
@@ -39,7 +38,7 @@ export const SuppliesTable: React.FC = () => {
 
   return (
     <Box>
-      <Box sx={{ overflowX: 'auto' }}>
+      <Box data-tour='supplies-table' sx={{ overflowX: 'auto' }}>
         <TableContainer
           className={`${styles.tableWrapper} onboarding-table`}
           sx={{

@@ -1,0 +1,43 @@
+.tooltip {
+  border-radius: 14px;
+  max-width: 334px;
+  min-width: 380px;
+  padding: 7px 15px 15px 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.closeButton {
+  margin-left: 8px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 8px;
+}
+
+.stepCounter {
+  text-transform: none !important;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  height: 36px;
+}
+
+.actionButton {
+  padding: 9px 27px;
+  min-height: 36px !important;
+}
