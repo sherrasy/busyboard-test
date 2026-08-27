@@ -39,7 +39,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
           sx={{
             width: 24,
             height: 24,
-            color: 'text.secondary',
+            color: 'text.primary',
           }}
         />
       }

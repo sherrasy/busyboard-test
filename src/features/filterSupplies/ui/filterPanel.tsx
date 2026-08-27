@@ -8,10 +8,7 @@ import { FilterBadges } from './components/badges';
 
 export const FilterPanel: React.FC = observer(() => {
   return (
-    <Box
-      className={`${styles.panel} onboarding-filters`}
-      sx={{ backgroundColor: '#F6F7FB' }}
-    >
+    <Box className={`${styles.panel} onboarding-filters`}>
       <FilterGrid />
       <FilterBadges />
     </Box>

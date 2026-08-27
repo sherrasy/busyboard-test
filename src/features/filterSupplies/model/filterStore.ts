@@ -16,7 +16,7 @@ export interface FilterState {
 }
 
 const initialFilters: FilterState = {
-  dateRange: ['2025-01-01', '2025-01-31'],
+  dateRange: ['01.01.2025', '31.01.2025'],
   contractor: null,
   organization: null,
   product: null,
@@ -39,8 +39,8 @@ class FilterStore {
     this.filters[key] = value;
   }
 
-  setOperationStatus(status: SupplyStatus | null) {
-    this.filters.operationStatus = status;
+  setDateRange(range: [string, string] | null) {
+    this.filters.dateRange = range;
   }
 
   resetFilters() {

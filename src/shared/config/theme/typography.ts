@@ -59,6 +59,5 @@ export const typography: TypographyVariantsOptions = {
   overline: {
     fontSize: '12px',
     fontWeight: 400,
-    textTransform: 'none',
   },
 };

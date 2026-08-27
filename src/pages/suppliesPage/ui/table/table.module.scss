@@ -1,12 +1,11 @@
-@use '@app/styles/variables.scss' as *;
-
 .tableWrapper {
-  border-radius: $radius-md;
-  box-shadow: $shadow-sm;
   overflow: hidden;
 }
 
 .loading {
-  padding: $spacing-xl;
   text-align: center;
+}
+
+.tableBody {
+  height: 462px;
 }

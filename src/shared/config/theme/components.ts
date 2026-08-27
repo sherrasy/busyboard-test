@@ -99,18 +99,6 @@ export const components: Components<Theme> = {
       },
     },
   },
-  MuiPaper: {
-    styleOverrides: {
-      root: {
-        '&.MuiMenu-paper': {
-          borderRadius: '8px',
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
-          marginTop: '4px',
-          border: '1px solid #DCE7F1',
-        },
-      },
-    },
-  },
   MuiList: {
     styleOverrides: {
       root: {

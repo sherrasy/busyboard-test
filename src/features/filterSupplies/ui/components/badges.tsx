@@ -2,51 +2,52 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { Box, Chip } from '@mui/material';
 import { filterStore } from '../../model/filterStore';
-import { SupplyStatus } from '@/entities/supply';
+import styles from '../filters.module.scss';
 
 interface SavedFilterBadge {
   label: string;
-  value: SupplyStatus;
+  value: [string, string];
 }
 
 const savedFilters: SavedFilterBadge[] = [
-  { label: 'Фильтр первый', value: 'accepted' },
-  { label: 'Фильтр первый', value: 'not_reserved' },
+  { label: 'Фильтр первый', value: ['02.02.2025', '03.03.2025'] },
+  { label: 'Фильтр первый', value: ['01.01.2025', '31.01.2025'] },
 ];
 
 export const FilterBadges: React.FC = observer(() => {
-  const handleBadgeClick = (status: SupplyStatus) => {
-    const current = filterStore.filters.operationStatus;
-    filterStore.setOperationStatus(current === status ? null : status);
+  const handleBadgeClick = (range: [string, string]) => {
+    const current = filterStore.filters.dateRange;
+    const isSameRange =
+      current !== null && current[0] === range[0] && current[1] === range[1];
+
+    filterStore.setDateRange(isSameRange ? null : range);
+  };
+
+  const isRangeActive = (range: [string, string]): boolean => {
+    const current = filterStore.filters.dateRange;
+    return (
+      current !== null && current[0] === range[0] && current[1] === range[1]
+    );
   };
 
   return (
-    <Box sx={{ display: 'flex', gap: '8px', marginTop: '24px' }}>
+    <Box className={styles.badges}>
       {savedFilters.map(({ label, value }) => {
-        const isActive = filterStore.filters.operationStatus === value;
+        const isActive = isRangeActive(value);
 
         return (
           <Chip
-            key={value}
+            key={`${value[0]}-${value[1]}`}
             label={label}
             onClick={() => handleBadgeClick(value)}
             sx={{
-              height: '36px',
-              borderRadius: '20px',
-              padding: '0 20px',
-              fontSize: '14px',
-              fontWeight: 500,
-              cursor: 'pointer',
-              transition: 'all 0.15s ease',
-              backgroundColor: isActive ? '#429EFF' : '#EAF5FF',
-              color: isActive ? '#FFFFFF' : '#8496AF',
+              backgroundColor: isActive ? 'primary.main' : 'primary.light',
+              color: isActive ? 'primary.contrastText' : 'text.secondary',
               '&:hover': {
-                backgroundColor: isActive ? '#2B8AEB' : '#DCE7F1',
-              },
-              '& .MuiChip-label': {
-                padding: 0,
+                backgroundColor: isActive ? 'primary.dark' : 'secondary.light',
               },
             }}
+            className={styles.badge}
           />
         );
       })}

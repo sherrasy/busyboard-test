@@ -1,6 +1,6 @@
-import React from 'react';
-import { TableCell, TableRow, Box } from '@mui/material';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
+import { Box, SxProps, TableCell, TableRow, Typography } from '@mui/material';
+import React from 'react';
 
 export interface ColumnDef {
   id: string;
@@ -14,21 +14,30 @@ interface TableHeaderProps {
   columns: ColumnDef[];
 }
 
-const headerCellSx = {
-  py: 1.5,
-  px: 2.5,
-  fontSize: '12px',
-  fontWeight: 500,
+const headerCellSx: SxProps = {
   textTransform: 'uppercase',
-  letterSpacing: '0.5px',
   color: 'text.secondary',
   whiteSpace: 'nowrap',
-  borderBottom: 'none',
   bgcolor: 'blueLight.main',
+  position: 'relative',
+
+  '&:not(:last-child)::after': {
+    content: '""',
+    position: 'absolute',
+    right: 0,
+    top: '20%',
+    bottom: '20%',
+    width: '1px',
+    bgcolor: 'divider',
+  },
 };
 
 export const TableHeader: React.FC<TableHeaderProps> = ({ columns }) => (
-  <TableRow>
+  <TableRow
+    sx={{
+      height: 60,
+    }}
+  >
     {columns.map((col) => (
       <TableCell
         key={col.id}
@@ -39,9 +48,15 @@ export const TableHeader: React.FC<TableHeaderProps> = ({ columns }) => (
           minWidth: col.minWidth,
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {col.label}
-          <FilterListOutlinedIcon sx={{ ml: 0.5, cursor: 'pointer' }} />
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Typography variant='overline'>{col.label}</Typography>
+          <FilterListOutlinedIcon sx={{ cursor: 'pointer', fontSize: 18 }} />
         </Box>
       </TableCell>
     ))}

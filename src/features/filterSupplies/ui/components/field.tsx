@@ -6,19 +6,16 @@ import {
   MenuItem,
   Box,
   Typography,
-  SvgIcon,
+  styled,
 } from '@mui/material';
 import { filterStore } from '../../model/filterStore';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import styles from '../filters.module.scss';
 
-const ChevronIcon = (props: any) => (
-  <SvgIcon
-    {...props}
-    viewBox='0 0 24 24'
-    sx={{ fontSize: 16, color: '#8496AF' }}
-  >
-    <path d='M7 10l5 5 5-5z' />
-  </SvgIcon>
-);
+const SmallArrowIcon = styled(KeyboardArrowDownIcon)({
+  fontSize: '18px',
+  marginRight: '10px',
+});
 
 export interface FilterFieldProps {
   name: string;
@@ -40,15 +37,7 @@ export const FilterField: React.FC<FilterFieldProps> = observer(
 
     return (
       <Box>
-        <Typography
-          sx={{
-            fontSize: '14px',
-            fontWeight: 500,
-            color: '#1E1E1E',
-            mb: '6px',
-            lineHeight: 1.4,
-          }}
-        >
+        <Typography sx={{ color: 'text.primary' }} className={styles.label}>
           {label}
         </Typography>
         <FormControl fullWidth size='small' variant='outlined'>
@@ -56,48 +45,49 @@ export const FilterField: React.FC<FilterFieldProps> = observer(
             value={displayValue}
             onChange={handleChange}
             displayEmpty
-            IconComponent={ChevronIcon}
+            IconComponent={SmallArrowIcon}
             renderValue={(selected) =>
               selected ? (
                 <Box
                   component='span'
-                  sx={{ color: '#1E1E1E', fontSize: '14px' }}
+                  sx={{ color: 'text.primary' }}
+                  className={styles.value}
                 >
                   {selected as string}
                 </Box>
               ) : (
                 <Box
                   component='span'
-                  sx={{ color: '#8496AF', fontSize: '14px' }}
+                  sx={{ color: 'text.secondary' }}
+                  className={styles.placeholder}
                 >
                   {placeholder}
                 </Box>
               )
             }
             sx={{
-              backgroundColor: '#FFFFFF',
-              borderRadius: '8px',
-              height: '40px',
+              backgroundColor: 'background.paper',
               '& .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#DCE7F1',
-                borderRadius: '8px',
+                borderColor: 'divider',
               },
               '&:hover .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#429EFF',
+                borderColor: 'primary.main',
               },
               '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#429EFF',
+                borderColor: 'primary.main',
                 borderWidth: '1px',
               },
               '& .MuiSelect-select': {
                 padding: '8px 32px 8px 14px',
-                fontSize: '14px',
               },
             }}
+            inputProps={{
+              className: styles.selectInput,
+            }}
+            className={styles.select}
             MenuProps={{
               PaperProps: {
                 sx: {
-                  borderRadius: '8px',
                   boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                   mt: 0.5,
                 },
@@ -106,8 +96,8 @@ export const FilterField: React.FC<FilterFieldProps> = observer(
           >
             <MenuItem value=''>
               <Box
-                component='em'
-                sx={{ color: '#8496AF', fontSize: '14px', fontStyle: 'normal' }}
+                sx={{ color: 'text.secondary' }}
+                className={styles.placeholder}
               >
                 {placeholder}
               </Box>

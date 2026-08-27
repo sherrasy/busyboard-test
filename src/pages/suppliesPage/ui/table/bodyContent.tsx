@@ -44,6 +44,7 @@ export const TableBodyContent: React.FC<TableBodyContentProps> = ({ rows }) => (
         key={supply.id}
         hover
         sx={{
+          height: 50,
           '&:hover': { bgcolor: '#FAFAFA' },
           '& td': bodyCellSx,
           '&:last-child td': {

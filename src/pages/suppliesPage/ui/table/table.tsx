@@ -41,11 +41,10 @@ export const SuppliesTable: React.FC = () => {
     <Box>
       <Box sx={{ overflowX: 'auto' }}>
         <TableContainer
-          component={Paper}
           className={`${styles.tableWrapper} onboarding-table`}
           sx={{
             boxShadow: 'none',
-            borderRadius: 2,
+            borderRadius: 0,
             overflow: 'hidden',
             minWidth: 1200,
           }}
@@ -54,7 +53,7 @@ export const SuppliesTable: React.FC = () => {
             <TableHead>
               <TableHeader columns={columns} />
             </TableHead>
-            <TableBody>
+            <TableBody className={styles.tableBody}>
               <TableBodyContent rows={rows} columns={columns} />
               {emptySpaceHeight > 0 && (
                 <TableRow>
