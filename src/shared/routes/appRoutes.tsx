@@ -1,3 +1,5 @@
+import { PageLayout } from '@/app/layout/pageLayout';
+import { SuppliesPage } from '@/pages/suppliesPage';
 import { createBrowserRouter } from 'react-router-dom';
 
 export enum AppRoutes {
@@ -11,7 +13,11 @@ export const AppRouter = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div>Страница в разработке</div>,
+        element: (
+          <PageLayout>
+            <SuppliesPage />
+          </PageLayout>
+        ),
       },
       {
         path: AppRoutes.ERROR,

@@ -1,0 +1,131 @@
+.header {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navButton {
+  position: relative;
+  padding: 0 16px !important;
+  font-size: 0.875rem;
+  font-weight: 400 !important;
+  border-radius: 0 !important;
+  text-transform: none !important;
+  min-height: 56px;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 280px;
+  margin-left: auto;
+}
+
+.userButton {
+  justify-content: flex-end;
+  width: 166px;
+  padding: 0 !important;
+  min-height: 36px;
+  span {
+    margin-right: 10px;
+    margin-left: 0;
+  }
+}
+
+.actionIcons {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.iconButton {
+  padding: 2px !important;
+}
+
+.avatar {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.favoritesButton {
+  justify-content: space-evenly;
+  gap: 4px;
+  width: 132px;
+  height: 40px;
+  padding: 10px 8px 10px 14px !important;
+  border-radius: 8px;
+}
+
+.menuPaper {
+  margin-top: 4px;
+  padding: 8px 0;
+  border-radius: 8px;
+  min-width: 180px;
+}
+
+.menuItem {
+  gap: 12px;
+  margin: 0 8px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  min-height: 40px;
+}
+
+.navItem {
+  position: relative;
+  padding-bottom: 4px !important;
+  border-radius: 0;
+  box-sizing: border-box;
+  min-height: 56px;
+  padding-inline: 5px !important;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &::after {
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+    left: 0px;
+    height: 2px;
+    content: '';
+  }
+}
+
+.menuPaper {
+  margin-top: 0;
+  padding: 12px 8px;
+  min-width: 240px;
+  pointer-events: auto;
+}
+
+.menuTitle {
+  padding: 0 10px !important;
+}
+
+.menuItem {
+  margin: 0 !important;
+  padding: 0 10px !important;
+  min-height: 36px;
+  &:hover {
+    color: var(--mui-palette-primary-main);
+    background-color: transparent;
+  }
+}
+
+.menuItemIcon {
+  min-width: 18px !important;
+}
+
+.menuItemIconSvg {
+  font-size: 18px;
+  &:hover {
+    color: var(--mui-palette-primary-main);
+  }
+}

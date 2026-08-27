@@ -1,0 +1,22 @@
+.main {
+  width: 100%;
+  padding-inline: 20px;
+  padding-block: 10px;
+  flex: 1;
+}
+
+.title {
+  width: fit-content;
+  padding: 4px 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+}

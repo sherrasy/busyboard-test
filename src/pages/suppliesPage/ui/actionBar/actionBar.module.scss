@@ -1,0 +1,42 @@
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnPrimary {
+  min-width: 140px;
+}
+.filterBtn {
+  width: 140px;
+  padding: 13px 20px;
+}
+.apiBtn {
+  width: 166px;
+  padding: 9px 12px;
+  white-space: nowrap;
+}
+.requestBtn {
+  width: 185px;
+  padding: 9px 12px;
+  white-space: nowrap;
+}
+
+.btnIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px !important;
+}
+
+.btnIconBordered {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px !important;
+}

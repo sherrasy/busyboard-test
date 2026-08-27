@@ -1,0 +1,24 @@
+.tableWrapper {
+  overflow: hidden;
+}
+
+.loading {
+  text-align: center;
+}
+
+.tableBody {
+  height: 494px;
+
+  tr {
+    max-height: 50px;
+  }
+
+  tr td {
+    height: auto !important;
+    padding: 16px;
+    color: inherit;
+    &:not(:last-of-type) {
+      border-bottom: 1px solid var(--mui-palette-divider);
+    }
+  }
+}
