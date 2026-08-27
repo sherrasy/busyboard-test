@@ -1,7 +1,8 @@
-import React from 'react';
-import { observer } from 'mobx-react-lite';
 import { Box, Chip } from '@mui/material';
+import { observer } from 'mobx-react-lite';
+import React from 'react';
 import { filterStore } from '../../model/filterStore';
+import cn from 'classnames';
 import styles from '../filters.module.scss';
 
 interface SavedFilterBadge {
@@ -47,7 +48,7 @@ export const FilterBadges: React.FC = observer(() => {
                 backgroundColor: isActive ? 'primary.dark' : 'secondary.light',
               },
             }}
-            className={styles.badge}
+            className={cn(styles.badge)}
           />
         );
       })}

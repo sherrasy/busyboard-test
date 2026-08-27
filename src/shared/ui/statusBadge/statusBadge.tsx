@@ -1,5 +1,5 @@
-import React from 'react';
 import { Chip, SxProps, Theme } from '@mui/material';
+import React from 'react';
 import styles from './badge.module.scss';
 
 export type BadgeVariant = 'success' | 'error' | 'warning' | 'info' | 'default';

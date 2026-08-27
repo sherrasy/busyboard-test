@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { Supply } from '../model/types';
 import { mockSupplies } from '../model/mockData';
+import { Supply } from '../model/types';
 
 const SUPPLY_QUERY_KEY = 'supplies';
 

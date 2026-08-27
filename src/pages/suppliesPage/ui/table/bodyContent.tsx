@@ -27,16 +27,6 @@ interface TableBodyContentProps {
   columns: ColumnDef[];
 }
 
-const bodyCellSx = {
-  py: 2,
-  px: 2.5,
-  fontSize: '13px',
-  color: 'text.primary',
-  verticalAlign: 'top',
-  borderBottom: '1px solid',
-  borderColor: 'divider',
-};
-
 export const TableBodyContent: React.FC<TableBodyContentProps> = ({ rows }) => (
   <>
     {rows.map((supply) => (
@@ -44,9 +34,12 @@ export const TableBodyContent: React.FC<TableBodyContentProps> = ({ rows }) => (
         key={supply.id}
         hover
         sx={{
+          color:
+            supply.status === 'not_reserved' ? 'gray.main' : 'text.primary',
           height: 50,
-          '&:hover': { bgcolor: '#FAFAFA' },
-          '& td': bodyCellSx,
+          minHeight: 50,
+          maxHeight: 50,
+          '&:hover': { bgcolor: 'grary.light' },
           '&:last-child td': {
             borderBottom: 'none',
           },
@@ -58,26 +51,29 @@ export const TableBodyContent: React.FC<TableBodyContentProps> = ({ rows }) => (
         </TableCell>
         <TableCell>{supply.organization}</TableCell>
         <TableCell>{supply.contractor}</TableCell>
-        <TableCell>{supply.supplyNumber}</TableCell>
-        <TableCell align='center'>{supply.quantity}</TableCell>
-        <TableCell>
+        <TableCell sx={{ textAlign: 'end' }}>{supply.supplyNumber}</TableCell>
+        <TableCell sx={{ textAlign: 'end' }}>{supply.quantity}</TableCell>
+        <TableCell sx={{ textAlign: 'center', py: '12px !important' }}>
           <StatusBadge
             text={supply.statusText}
             variant={supply.status === 'accepted' ? 'success' : 'error'}
           />
         </TableCell>
-        <TableCell>
+        <TableCell sx={{ py: '6px !important' }}>
           {supply.receptionDate ? (
             <Box>
-              <DateTimeCell date={supply.receptionDate} />
+              <DateTimeCell
+                date={supply.receptionDate}
+                color='text.secondary'
+                variant='caption'
+              />
               {supply.deliveryTime && (
                 <Typography
-                  component='div'
+                  component={'p'}
+                  variant='caption'
                   sx={{
-                    fontSize: '13px',
                     color: 'text.primary',
-                    mt: 0.25,
-                    lineHeight: 1.4,
+                    mt: '2px',
                   }}
                 >
                   Время доставки: {supply.deliveryTime}
@@ -86,8 +82,20 @@ export const TableBodyContent: React.FC<TableBodyContentProps> = ({ rows }) => (
             </Box>
           ) : null}
         </TableCell>
-        <TableCell>{formatNumber(supply.amount)}</TableCell>
-        <TableCell>{supply.comment}</TableCell>
+        <TableCell sx={{ textAlign: 'end' }}>
+          {formatNumber(supply.amount)}
+        </TableCell>
+        <TableCell>
+          <Typography
+            component={'span'}
+            variant='caption'
+            sx={{
+              mt: 0,
+            }}
+          >
+            {supply.comment}
+          </Typography>
+        </TableCell>
       </TableRow>
     ))}
   </>

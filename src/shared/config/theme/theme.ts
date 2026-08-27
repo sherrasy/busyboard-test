@@ -4,6 +4,9 @@ import { typography } from './typography';
 import { components } from './components';
 
 export const theme = createTheme({
+  cssVariables: {
+    cssVarPrefix: 'mui',
+  },
   palette: lightPalette,
   typography,
   components,

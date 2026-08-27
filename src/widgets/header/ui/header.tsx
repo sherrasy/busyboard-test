@@ -6,6 +6,7 @@ import { useHoverMenu } from '../lib/useHoverMenu';
 import { FavoritesButton } from './components/favoritesBtn';
 import { NavItem } from './components/navItem';
 import { UserMenu } from './components/userMenu';
+import styles from './header.module.scss';
 
 export const Header: React.FC = () => {
   const [activeItem, setActiveItem] = useState<string>(navItems[0]);
@@ -24,17 +25,16 @@ export const Header: React.FC = () => {
   return (
     <AppBar
       position='static'
-      className='onboarding-header'
       sx={{
-        backgroundColor: '#fff',
-        color: '#414042',
-        boxShadow: 'none',
-        borderBottom: '1px solid #E2E8F0',
+        backgroundColor: 'background.paper',
+        color: 'text.primary',
+        borderBottom: (theme) => `1px solid ${theme.palette.gray.light}}`,
       }}
     >
       <Toolbar
         variant='dense'
         disableGutters
+        className={styles.header}
         sx={{
           minHeight: 56,
           display: 'flex',

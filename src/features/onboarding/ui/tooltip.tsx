@@ -1,6 +1,6 @@
-import React from 'react';
-import { Box, Button, IconButton, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { Box, Button, IconButton, Typography } from '@mui/material';
+import React from 'react';
 import type { TooltipRenderProps } from 'react-joyride';
 import styles from './tooltip.module.scss';
 

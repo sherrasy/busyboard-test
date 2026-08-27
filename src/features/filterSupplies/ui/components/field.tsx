@@ -1,15 +1,15 @@
-import React from 'react';
-import { observer } from 'mobx-react-lite';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {
-  FormControl,
-  Select,
-  MenuItem,
   Box,
+  FormControl,
+  MenuItem,
+  Select,
   Typography,
   styled,
 } from '@mui/material';
+import { observer } from 'mobx-react-lite';
+import React from 'react';
 import { filterStore } from '../../model/filterStore';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import styles from '../filters.module.scss';
 
 const SmallArrowIcon = styled(KeyboardArrowDownIcon)({
@@ -37,7 +37,7 @@ export const FilterField: React.FC<FilterFieldProps> = observer(
 
     return (
       <Box>
-        <Typography sx={{ color: 'text.primary' }} className={styles.label}>
+        <Typography variant='body2' sx={{ color: 'text.primary' }}>
           {label}
         </Typography>
         <FormControl fullWidth size='small' variant='outlined'>
@@ -85,14 +85,6 @@ export const FilterField: React.FC<FilterFieldProps> = observer(
               className: styles.selectInput,
             }}
             className={styles.select}
-            MenuProps={{
-              PaperProps: {
-                sx: {
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                  mt: 0.5,
-                },
-              },
-            }}
           >
             <MenuItem value=''>
               <Box

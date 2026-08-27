@@ -1,8 +1,8 @@
-import React from 'react';
 import { Box } from '@mui/material';
-import { FilterField } from './field';
+import React from 'react';
 import { filterConfig } from '../../config/config';
 import styles from '../filters.module.scss';
+import { FilterField } from './field';
 
 export const FilterGrid: React.FC = () => {
   return (

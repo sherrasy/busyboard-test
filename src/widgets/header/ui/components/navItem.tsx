@@ -1,7 +1,6 @@
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import {
   Button,
-  Divider,
   ListItemIcon,
   ListItemText,
   Menu,
@@ -83,18 +82,13 @@ export const NavItem: React.FC<NavItemProps> = ({
       >
         <Typography
           className={styles.menuTitle}
-          variant='button'
+          variant='subtitle1'
           sx={{
-            color: 'text.primary',
+            color: 'text.secondary',
           }}
         >
           {label}
         </Typography>
-
-        <Divider
-          className={styles.menuDivider}
-          sx={{ borderColor: 'grayLight.main' }}
-        />
 
         {submenu.items.map((item) => (
           <MenuItem
@@ -113,13 +107,7 @@ export const NavItem: React.FC<NavItemProps> = ({
             >
               <StarBorderIcon className={styles.menuItemIconSvg} />
             </ListItemIcon>
-            <ListItemText
-              primary={item}
-              primaryTypographyProps={{
-                fontSize: '0.875rem',
-                color: 'text.primary',
-              }}
-            />
+            <ListItemText primary={item} />
           </MenuItem>
         ))}
       </Menu>

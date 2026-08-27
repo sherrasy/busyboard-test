@@ -4,8 +4,8 @@ export const typography: TypographyVariantsOptions = {
   fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
   htmlFontSize: 16,
   allVariants: {
-    lineHeight: 1.4,
-    letterSpacing: 0.8,
+    lineHeight: 1.3,
+    letterSpacing: '0.02em',
   },
   h1: {
     fontSize: '24px',
@@ -41,7 +41,7 @@ export const typography: TypographyVariantsOptions = {
   },
   body1: {
     fontSize: '14px',
-    fontWeight: 600,
+    fontWeight: 400,
   },
   body2: {
     fontSize: '14px',

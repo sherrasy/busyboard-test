@@ -1,5 +1,6 @@
 import { PaginationBar } from '@/shared/ui/pagination/pagination';
 import { TableHeader } from '@/shared/ui/tableParts/headerCell';
+import { LoadingOutlined } from '@ant-design/icons';
 import { useSupplies } from '@entities/supply';
 import {
   Box,
@@ -9,15 +10,14 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
 } from '@mui/material';
+import { Spin } from 'antd';
 import React, { useState } from 'react';
 import { columns } from '../../lib/consts';
 import { TableBodyContent } from './bodyContent';
 import styles from './table.module.scss';
-
 const TABLE_HEIGHT = 440;
-const ROW_HEIGHT = 56;
+const ROW_HEIGHT = 50;
 
 export const SuppliesTable: React.FC = () => {
   const { data: supplies, isLoading } = useSupplies();
@@ -27,7 +27,7 @@ export const SuppliesTable: React.FC = () => {
   if (isLoading) {
     return (
       <div className={styles.loading}>
-        <Typography sx={{ color: 'text.secondary' }}>Загрузка...</Typography>
+        <Spin indicator={<LoadingOutlined spin />} />
       </div>
     );
   }
@@ -72,7 +72,7 @@ export const SuppliesTable: React.FC = () => {
       </Box>
       <PaginationBar
         page={page}
-        totalPages={10}
+        totalPages={5}
         rowsPerPage={rowsPerPage}
         onPageChange={setPage}
         onRowsPerPageChange={(rows) => {

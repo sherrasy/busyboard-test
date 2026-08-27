@@ -11,7 +11,6 @@ import {
   ListItemText,
   Menu,
   MenuItem,
-  Stack,
 } from '@mui/material';
 import React from 'react';
 import { userMenuItems } from '../../lib/consts';
@@ -82,17 +81,11 @@ export const UserMenu: React.FC<UserMenuProps> = ({
           <ListItemIcon sx={{ minWidth: 'auto', color: 'text.secondary' }}>
             <Icon sx={{ fontSize: 20 }} />
           </ListItemIcon>
-          <ListItemText
-            primary={label}
-            primaryTypographyProps={{
-              fontSize: '0.875rem',
-              color: 'text.primary',
-            }}
-          />
+          <ListItemText primary={label} />
         </MenuItem>
       ))}
     </Menu>
-    <Stack direction={'row'} gap={'4px'} sx={{ color: 'text.primary' }}>
+    <Box sx={{ color: 'text.primary' }} className={styles.actionIcons}>
       <IconButton className={styles.iconButton} size='small'>
         <BookIcon />
       </IconButton>
@@ -100,7 +93,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
       <IconButton className={styles.iconButton} size='small'>
         <NotificationIcon />
       </IconButton>
-    </Stack>
+    </Box>
     <Avatar className={styles.avatar} sx={{ bgcolor: 'success.main' }}>
       <UserIcon sx={{ fontSize: 16, color: 'white.main' }} />
     </Avatar>

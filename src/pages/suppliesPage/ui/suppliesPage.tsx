@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
 import { FilterPanel } from '@/features/filterSupplies';
-import { ActionBar } from './actionBar/actionBar';
-import { SuppliesTable } from './table/table';
-import { Box, Typography } from '@mui/material';
-import styles from './page.module.scss';
 import { useOnboardingContext } from '@/features/onboarding/ui/onboardingProvider';
+import { Box, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
+import { ActionBar } from './actionBar/actionBar';
+import styles from './page.module.scss';
+import { SuppliesTable } from './table/table';
 
 export const SuppliesPage: React.FC = () => {
   const { startTour } = useOnboardingContext();

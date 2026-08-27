@@ -1,15 +1,7 @@
+import { ArrowIcon } from '@/shared/icons/arrowIcon';
+import { Box, Typography } from '@mui/material';
+import { Pagination, Select } from 'antd';
 import React from 'react';
-import {
-  Pagination,
-  PaginationItem,
-  Select,
-  MenuItem,
-  Box,
-  Typography,
-} from '@mui/material';
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import styles from './pagination.module.scss';
 
 interface PaginationBarProps {
@@ -27,48 +19,59 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
   onPageChange,
   onRowsPerPageChange,
 }) => {
-  const handleChange = (_: React.ChangeEvent<unknown>, value: number) => {
+  const handleChange = (value: number) => {
     onPageChange(value);
   };
 
-  const handleRowsChange = (event: any) => {
-    onRowsPerPageChange(Number(event.target.value));
+  const handleRowsChange = (value: number) => {
+    onRowsPerPageChange(value);
+  };
+
+  const itemRender = (
+    _page: number,
+    type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
+    originalElement: React.ReactNode,
+  ) => {
+    if (type === 'prev') {
+      return <ArrowIcon sx={{ transform: 'rotate(180deg)' }} />;
+    }
+    if (type === 'next') {
+      return <ArrowIcon />;
+    }
+    return originalElement;
   };
 
   return (
-    <Box className={styles.paginationBar}>
+    <div className={styles.paginationBar}>
       <Pagination
-        count={totalPages}
-        page={page}
+        current={page}
+        total={totalPages * rowsPerPage}
+        pageSize={rowsPerPage}
         onChange={handleChange}
-        shape='rounded'
-        siblingCount={1}
-        boundaryCount={0}
-        showFirstButton={false}
-        showLastButton={false}
-        renderItem={(item) => (
-          <PaginationItem
-            slots={{
-              previous: KeyboardArrowLeftIcon,
-              next: KeyboardArrowRightIcon,
-            }}
-            {...item}
-          />
-        )}
+        showSizeChanger={false}
+        showQuickJumper={false}
+        itemRender={itemRender}
+        className={styles.pagination}
       />
 
-      <Typography className={styles.rowsLabel}>Строк на странице</Typography>
+      <Box className={styles.paginationSelect}>
+        <Typography variant='body1'>Строк на странице</Typography>
 
-      <Select
-        value={rowsPerPage}
-        onChange={handleRowsChange}
-        IconComponent={KeyboardArrowDownIcon}
-      >
-        <MenuItem value={10}>10</MenuItem>
-        <MenuItem value={25}>25</MenuItem>
-        <MenuItem value={50}>50</MenuItem>
-        <MenuItem value={100}>100</MenuItem>
-      </Select>
-    </Box>
+        <Select
+          value={rowsPerPage}
+          onChange={handleRowsChange}
+          options={[
+            { value: 10, label: '10' },
+            { value: 25, label: '25' },
+            { value: 50, label: '50' },
+            { value: 100, label: '100' },
+          ]}
+          className={styles.rowsSelect}
+          suffixIcon={
+            <ArrowIcon sx={{ fontSize: 16, transform: 'rotate(90deg)' }} />
+          }
+        />
+      </Box>
+    </div>
   );
 };

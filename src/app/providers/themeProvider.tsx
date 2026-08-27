@@ -1,10 +1,11 @@
-import React from 'react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { ConfigProvider } from 'antd';
 import 'dayjs/locale/ru';
+import React from 'react';
 
+import { CssBaseline } from '@mui/material';
 import { theme } from '@shared/config/theme/theme';
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -12,6 +13,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   return (
     <MuiThemeProvider theme={theme}>
+      <CssBaseline enableColorScheme />
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='ru'>
         <ConfigProvider
           theme={{
