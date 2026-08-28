@@ -1,3 +1,4 @@
+import { LogoIcon } from '@/shared/icons/logoIcon';
 import { AppBar, Box, Toolbar } from '@mui/material';
 import React, { useCallback, useState } from 'react';
 import { navItems, submenuData } from '../lib/consts';
@@ -43,10 +44,7 @@ export const Header: React.FC = () => {
           gap: 5,
         }}
       >
-        <Box
-          component='img'
-          src='/images/logo.svg'
-          alt='Logo'
+        <LogoIcon
           sx={{ height: 24, width: 120, display: 'block', ml: '6px' }}
         />
         <FavoritesButton />
