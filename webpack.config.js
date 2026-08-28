@@ -3,6 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
+const isGithubActions = process.env.GITHUB_REPOSITORY;
+const repoName = isGithubActions
+  ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/`
+  : '/';
 
 module.exports = {
   entry: './src/main.tsx',
@@ -11,7 +15,7 @@ module.exports = {
     filename: isDevelopment ? '[name].js' : '[name].[contenthash].js',
     chunkFilename: isDevelopment ? '[name].js' : '[name].[contenthash].js',
     clean: true,
-    publicPath: '/',
+    publicPath: repoName,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],

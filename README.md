@@ -9,7 +9,7 @@ npm install
 npm start
 ```
 
-Приложение будет доступно на `http://localhost:3000`
+Приложение будет доступно на `http://localhost:300/busyboard-test`
 
 ## Онбординг
 
